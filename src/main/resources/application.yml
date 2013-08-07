@@ -27,6 +27,14 @@ github:
     id: fb06c006c2ed62fe9e8b
     secret: 164264e3f6d70c7c21713b7fa64225cb8d6107b2
 
+server:
+    tomcat:
+        # http://tomcat.apache.org/tomcat-7.0-doc/api/org/apache/catalina/valves/AccessLogValve.html
+        accessLogEnabled: true
+        accessLogPattern: '%h %l %u %t "%r" %s %b %{Host}i %{Location}o'
+        baseDir: target
+        backgroundProcessorDelay: 1
+
 ---
 
 spring:
