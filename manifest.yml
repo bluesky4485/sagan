@@ -1,17 +1,18 @@
 ---
 applications:
-- name: sagan
-  memory: 2G
+- name: sagan-test
+  memory: 3G
   instances: 1
-  host: sagan
+  host: sagan-test
   domain: cfapps.io
+  buildpack: https://github.com/cloudfoundry/java-buildpack
   path: target/springframework-site-0.0.1.SNAPSHOT.jar
-  command: chmod +x *.sh && ./main.sh --server.port=$PORT --spring.profiles.active=$SPRING_PROFILE
+  command: chmod +x *.sh && LOCAL_OPTS=-Dnewrelic.config.app_name=sagan ./main.sh --server.port=$PORT --spring.profiles.active=$SPRING_PROFILE
 - name: sagan-indexer
   memory: 2G
   instances: 1
   host: sagan-indexer
   domain: cfapps.io
+  buildpack: https://github.com/cloudfoundry/java-buildpack
   path: target/springframework-site-0.0.1.SNAPSHOT.jar
-  command: chmod +x *.sh && ./main.sh --server.port=$PORT --spring.profiles.active=$SPRING_PROFILE
-
+  command: chmod +x *.sh && LOCAL_OPTS=-Dnewrelic.config.app_name=indexer ./main.sh --server.port=$PORT --spring.profiles.active=$SPRING_PROFILE

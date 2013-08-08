@@ -1,6 +1,6 @@
 common: &default_settings
 
-  license_key: d0e064fcd427b492aff67ca9220f35929b0c6a93
+  license_key: "d0e064fcd427b492aff67ca9220f35929b0c6a93"
 
   app_name: sagan
   monitor_mode: true
